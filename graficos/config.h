@@ -23,5 +23,6 @@
 #define RECT_HEIGHT(j)      (HIST_Y - (Y_MARGIN_INF + (HIST_Y - Y_MARGIN_INF - Y_MARGIN_SUP - HIST_MARGIN) * REL(j)))
 #define FONT_SIZE           Y_MARGIN_INF/2
 #define MAX_CANT    10
-
+#define GRAPH_TIME  5
+#define ANIMATION_TIME  0.5
 #endif //_CONFIG_H_

@@ -244,42 +244,45 @@ int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura) {
 
 }
 
-int draw_histogram(float mean[], int quant)
+int draw_histogram(float mean[])
 {
     char arr[MAX_CANT + 1] = "";
 
-    ALLEGRO_FONT* font = al_load_ttf_font("../resources/Ranchers-Regular.ttf", FONT_SIZE, 0);
+    ALLEGRO_FONT* font = al_load_ttf_font("/Users/agustin/Desktop/EDATP2/graficos/resources/fonts/Ranchers-Regular.ttf", FONT_SIZE, 0);
 
     if (!font) {
         fprintf(stderr, "Could not load font.\n");
         return -1;
     }
 
-    for (int i = 0; i < quant; i++)
+    for (int i = 0; i < SIZE(mean); i++)
     {
+        // Dibujamos los ejes
         al_clear_to_color(BLACK);
         al_draw_line(X_MARGIN_LEFT - 15, HIST_Y - Y_MARGIN_INF, HIST_X - X_MARGIN_RIGHT + 5, HIST_Y - Y_MARGIN_INF, WHITE, 2);
         al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF + 15, X_MARGIN_LEFT, Y_MARGIN_SUP - 5, WHITE, 2);
+        
+        // Escribimos que es cada eje.
         al_draw_text(font, BLUE, HIST_X - X_MARGIN_LEFT + 10, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, "Robots");
         al_draw_text(font, BLUE, X_MARGIN_LEFT / 2, 5, ALLEGRO_ALIGN_CENTRE, "Tiempo");
 
         for (int j = 0; j <= i; j++)
         {
             // Dibujamos el rect�ngulo.
-            al_draw_filled_rectangle(X_INIT(j, quant), HIST_Y - Y_MARGIN_INF, X_FIN(j, quant), RECT_HEIGHT(j), RED);
+            al_draw_filled_rectangle(X_INIT(j, SIZE(mean)), HIST_Y - Y_MARGIN_INF, X_FIN(j, SIZE(mean)), RECT_HEIGHT(j), RED);
 
             // Dibujamos los X ticks.
             sprintf(arr, "%d", j + 1);
-            al_draw_text(font, WHITE, (X_FIN(j, quant) + X_INIT(j, quant)) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
+            al_draw_text(font, WHITE, (X_FIN(j, SIZE(mean)) + X_INIT(j, SIZE(mean))) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
 
             // Dibujamos los Y ticks.
             sprintf(arr, "%.2f", mean[j]);
             al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, RECT_HEIGHT(j) - FONT_SIZE / 2, ALLEGRO_ALIGN_CENTRE, arr);
         }
         al_flip_display();
-        al_rest(0.5);
+        al_rest(ANIMATION_TIME);
     }
-    al_rest(5);
+    al_rest(GRAPH_TIME); 
 
     al_destroy_font(font);
     return 0;

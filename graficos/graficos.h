@@ -32,6 +32,8 @@
 #define DARKGRAY al_map_rgb(105, 105, 105)
 #define WHITE al_map_rgb(250, 250, 250)
 
+#define SIZE(v) (sizeof(v)/sizeof(v[0]))
+
 #define CLEAN 0
 
 
@@ -46,6 +48,6 @@ void destroy_all(simulation_t* sim, ALLEGRO_BITMAP** textures, ALLEGRO_DISPLAY* 
 float getScale(int w, int h);
 int drawUI(simulation_t* sim);
 
-int draw_histogram(float means[], int quant);
+int draw_histogram(float means[]);
 
 #endif //TP2_GRAFICOS_H

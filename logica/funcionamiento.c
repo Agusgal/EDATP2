@@ -237,15 +237,15 @@ void runsimulation(simulation_t *sim)
 }
 
 
-/*float thousandsimulaciones(long ancho, long alto, int cantrob)
+/*float thousandsimulaciones(simulation_t *sim, int x)
 {
     int cont = 0;
     float ticks = 0;
     simulation_t* simulacion;
     while (cont < 1000)
     {
-        simulacion = runsimulation(ancho, alto, cantrob, 2);
-        ticks +=  ( ( (float)(simulacion->tickcount) ) / 1000 );
+        simulacion = runsimulation(sim);
+        ticks +=  (float)simulacion->tickCount / 1000;
     }
     return ticks;
 }*/

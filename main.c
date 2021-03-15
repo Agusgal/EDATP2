@@ -35,13 +35,42 @@ int main(int argc, char* argv[])
     /*if (mode == 2)
     {
 
+        float* mean;
+        
+        for(int x=1; (mean[x] - mean[x-1]) >=  0.1 || x=1 || x=0 ; x++)
+        {
+            createsim(&sim, textures);  //todo: La simulacion deberia ser creada en thou
+            sim->numRobots = x;
+            mean = (float)realloc(mean, x);
+            mean[x-1] = TICK2TIME(thousandsimulaciones(&sim, x)); 
+        }
+        
+        if (draw_histogram(mean) == -1)
+            {
+                return -1;
+            }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         int x = 0;
         funcion_t* funcion = (funcion_t*)malloc(sizeof(funcion_t)); // falta correjir
         if (funcion != NULL)
         {
 
-            (funcion )->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, 1));
-            (funcion )->cantrob = 1;
+            funcion->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, 1));
+            funcion->cantrob = 1;
 
             do
             {
@@ -54,17 +83,19 @@ int main(int argc, char* argv[])
                     return -1;                      // si falla y no sabemos pq es por esto
                 }
 
-                (funcion + (x))->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, x + 1));
+                
+                //(funcion + (x))->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, x + 1));
+                //(funcion + (x))->cantrob = x + 1;
 
+                funcion[x].tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, x + 1)); 
+                funcion[x].cantrob = x + 1;
 
+            } while ( (funcion[x].tiempomedio - funcion[x-1].tiempomedio) >=  0.1);
 
-                (funcion + (x))->cantrob = (x + 1);
-
-
-
-
-            } while ( ( (*( funcion + (x ) )).tiempomedio) - (((*(funcion + (x - 1))).tiempomedio)) >=  0.1);
-
+            if (draw_histogram()== -1)
+            {
+                return -1;
+            }
         }
         else
         {
