@@ -113,9 +113,11 @@ int drawUI(simulation_t* sim) {
     sprintf(buffer, "Gen %d", sim->tickCount);
     al_draw_text(font, WHITE, SCREENWEIGHT *7/8, SCREENHEIGHT * 7 / 8, ALLEGRO_ALIGN_CENTRE, buffer);
 
+    return 0;
+
 }
 
-void drawFloor(simulation_t* sim)
+void drawFloor(simulation_t* sim, ALLEGRO_BITMAP** textures)
 {
 
     float scale = getScale(sim->w, sim->h);
@@ -126,8 +128,16 @@ void drawFloor(simulation_t* sim)
             float posX = sim->floor[i][j].xPos * scale;
             float posY = sim->floor[i][j].yPos * scale;
 
-            al_draw_scaled_bitmap(sim->floor[i][j].texture, 0, 0, al_get_bitmap_width(sim->floor[i][j].texture), al_get_bitmap_height(sim->floor[i][j].texture),
-                                  posX, posY, al_get_bitmap_width(sim->floor[i][j].texture) * scale, al_get_bitmap_height(sim->floor[i][j].texture) * scale, 0);
+            if(sim->floor[i][j].state == CLEAN){
+                al_draw_scaled_bitmap(textures[GREENTILEIMG], 0, 0, al_get_bitmap_width(sim->floor[i][j].texture), al_get_bitmap_height(sim->floor[i][j].texture),
+                                      posX, posY, al_get_bitmap_width(sim->floor[i][j].texture) * scale, al_get_bitmap_height(sim->floor[i][j].texture) * scale, 0);
+
+            }
+            else{
+                al_draw_scaled_bitmap(textures[REDTILEIMG], 0, 0, al_get_bitmap_width(sim->floor[i][j].texture), al_get_bitmap_height(sim->floor[i][j].texture),
+                                      posX, posY, al_get_bitmap_width(sim->floor[i][j].texture) * scale, al_get_bitmap_height(sim->floor[i][j].texture) * scale, 0);
+            }
+
 
         }
     }
@@ -151,15 +161,13 @@ void drawRobot(simulation_t* sim)
         int imgH = al_get_bitmap_height(sim->robots[i].texture);
         float angle = sim->robots[i].angle;
 
-
-        al_draw_scaled_bitmap(sim->robots[i].texture, 0, 0, imgW, imgH, (tilex + (tileW - imgW)/2) * scale, (tiley + (tileH - imgH) / 2) * scale,
-                              imgW * scale, imgH * scale, 0);
+        al_draw_scaled_bitmap(sim->robots[i].texture, 0, 0, imgW, imgH, (tilex * tileW + (tileW - imgW)/2) * scale, (tiley * tileH + (tileH - imgH) / 2) * scale,
+                             imgW * scale, imgH * scale, 0);
 
         imgW = al_get_bitmap_width(sim->robots[i].arrow);
         imgH = al_get_bitmap_height(sim->robots[i].arrow);
 
-
-        al_draw_scaled_rotated_bitmap(sim->robots[i].arrow, imgW/2, imgH, (tilex + imgH / 2)*scale, (tiley + imgH / 2)*scale, scale, scale, sim->robots[i].angle, 0);
+        al_draw_scaled_rotated_bitmap(sim->robots[i].arrow, imgW/2, imgH, (tilex * tileW + imgH / 2)*scale, (tiley * tileH + imgH / 2) * scale, scale, scale, angle + 90, 0);
     }
 
 }
@@ -182,7 +190,7 @@ int loadTextures(ALLEGRO_BITMAP** textura) {
 
     for (int i = 0; !error && i < NUMOFTEXTURES; i++) {
 
-        int size = sprintf(rutaEfectiva, "/Users/agustin/Desktop/EDATP2/graficos/resources/textures/%d.png", i+1);
+        int size = sprintf(rutaEfectiva, "../graficos/resources/textures/%d.png", i+1);
         textura[i] = al_load_bitmap(rutaEfectiva);
 
         if (textura[i] == NULL)
@@ -244,18 +252,18 @@ int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura) {
 
 }
 
-int draw_histogram(float mean[])
+int draw_histogram(float* mean, int quant)
 {
     char arr[MAX_CANT + 1] = "";
 
-    ALLEGRO_FONT* font = al_load_ttf_font("/Users/agustin/Desktop/EDATP2/graficos/resources/fonts/Ranchers-Regular.ttf", FONT_SIZE, 0);
+    ALLEGRO_FONT* font = al_load_ttf_font("../graficos/resources/fonts/Ranchers-Regular.ttf", FONT_SIZE, 0);
 
     if (!font) {
         fprintf(stderr, "Could not load font.\n");
         return -1;
     }
 
-    for (int i = 0; i < SIZE(mean); i++)
+    for (int i = 0; i < quant; i++)
     {
         // Dibujamos los ejes
         al_clear_to_color(BLACK);
@@ -269,11 +277,11 @@ int draw_histogram(float mean[])
         for (int j = 0; j <= i; j++)
         {
             // Dibujamos el rect�ngulo.
-            al_draw_filled_rectangle(X_INIT(j, SIZE(mean)), HIST_Y - Y_MARGIN_INF, X_FIN(j, SIZE(mean)), RECT_HEIGHT(j), RED);
+            al_draw_filled_rectangle(X_INIT(j, quant), HIST_Y - Y_MARGIN_INF, X_FIN(j, quant), RECT_HEIGHT(j), RED);
 
             // Dibujamos los X ticks.
             sprintf(arr, "%d", j + 1);
-            al_draw_text(font, WHITE, (X_FIN(j, SIZE(mean)) + X_INIT(j, SIZE(mean))) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
+            al_draw_text(font, WHITE, (X_FIN(j, quant) + X_INIT(j, quant)) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
 
             // Dibujamos los Y ticks.
             sprintf(arr, "%.2f", mean[j]);

@@ -6,15 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/Users/agustin/Desktop/EDATP2/estructuras/estructuras.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
 stdbool.h
 -
 allegro5/bitmap.h
 -
 
-/Users/agustin/Desktop/EDATP2/graficos/config.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
 
-/Users/agustin/Desktop/EDATP2/graficos/graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c
+graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
 stdio.h
 -
 math.h
@@ -36,17 +40,17 @@ allegro5/allegro_font.h
 allegro5/allegro_ttf.h
 -
 config.h
-/Users/agustin/Desktop/EDATP2/graficos/config.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
 ../estructuras/estructuras.h
-/Users/agustin/Desktop/EDATP2/estructuras/estructuras.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
 
-/Users/agustin/Desktop/EDATP2/logica/funcionamiento.c
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c
 funcionamiento.h
-/Users/agustin/Desktop/EDATP2/logica/funcionamiento.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
 ../graficos/graficos.h
-/Users/agustin/Desktop/EDATP2/graficos/graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
 
-/Users/agustin/Desktop/EDATP2/logica/funcionamiento.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
 stdio.h
 -
 stdlib.h
@@ -56,9 +60,9 @@ math.h
 stdbool.h
 -
 ../estructuras/estructuras.h
-/Users/agustin/Desktop/EDATP2/estructuras/estructuras.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
 ../graficos/config.h
-/Users/agustin/Desktop/EDATP2/graficos/config.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
 allegro5/allegro5.h
 -
 allegro5/allegro_native_dialog.h

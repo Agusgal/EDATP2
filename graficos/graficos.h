@@ -42,12 +42,12 @@ void showMainMenu(simulation_t* sim, int* mode);
 int init_allegro();
 int loadTextures(ALLEGRO_BITMAP** textura);
 int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura);
-void drawFloor(simulation_t* sim);
+void drawFloor(simulation_t* sim, ALLEGRO_BITMAP** textures);
 void drawRobot(simulation_t* sim);
 void destroy_all(simulation_t* sim, ALLEGRO_BITMAP** textures, ALLEGRO_DISPLAY* display);
 float getScale(int w, int h);
 int drawUI(simulation_t* sim);
 
-int draw_histogram(float means[]);
+int draw_histogram(float* mean, int quant);
 
 #endif //TP2_GRAFICOS_H

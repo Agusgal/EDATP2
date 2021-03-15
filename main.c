@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 
             } while ( (funcion[x].tiempomedio - funcion[x-1].tiempomedio) >=  0.1);
 
-            if (draw_histogram()== -1)
+            if (int draw_histogram(float* mean, int quant)== -1)
             {
                 return -1;
             }
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
 
     if (mode == 1)
     {
-        runsimulation(&sim);
+        runsimulation(&sim, textures, mode);
         printf(" el numero de ticks que tardo en completar la limpieza fue %d ", sim.tickCount);
     }
 

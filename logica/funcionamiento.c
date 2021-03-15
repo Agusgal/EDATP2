@@ -65,6 +65,9 @@
 
 int createrobots(simulation_t* sim, ALLEGRO_BITMAP** textura)
 {
+
+    srand(time(NULL));
+
     sim->robots = (robot_t*) malloc(sizeof(robot_t) * (sim->numRobots)) ;
 
     if (sim->robots == NULL) {
@@ -119,6 +122,7 @@ int createFloor(simulation_t *sim, ALLEGRO_BITMAP** textura)
             sim->floor[i][j].xPos = j * PIXELSPERUNIT;
         }
     }
+
     return 0;
 }
 
@@ -135,6 +139,7 @@ void deleterobots(robot_t* robots)
 int createsim(simulation_t *sim, ALLEGRO_BITMAP** textura)
 {
     sim->tickCount = 0;
+
     if(createrobots(sim, textura) || createFloor(sim, textura))
     {
         return 1;
@@ -195,7 +200,7 @@ void cleanFloor(simulation_t* sim)
         int tilex = floor(sim->robots[i].xPos);
         int tiley = floor(sim->robots[i].yPos);
 
-        sim->floor[tilex][tiley].state = CLEAN;
+        sim->floor[tiley][tilex].state = CLEAN;
     }
 }
 
@@ -217,21 +222,27 @@ bool checkclean(simulation_t*sim)
     return itsclean;
 }
 
-void runsimulation(simulation_t *sim)
+void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures, int mode)
 {
+
     while (!checkclean(sim))
     {
         cleanFloor(sim);
+
+        if(mode == 1) {
+            drawFloor(sim, textures);
+            drawRobot(sim);
+            //drawUI(&sim);
+
+            al_flip_display();
+
+            al_rest(TICK2TIME(TIME));
+        }
+
         moveRobots(sim);
+
         sim->tickCount++;
 
-        drawFloor(sim);
-        drawRobot(sim);
-        //drawUI(&sim);
-
-        al_flip_display();
-
-        al_rest(TICK2TIME(TIME));
 
     }
 }

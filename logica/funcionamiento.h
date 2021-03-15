@@ -42,9 +42,9 @@ void cleanFloor(simulation_t* sim);
 bool checkclean(simulation_t* sim);
 
 
-void runsimulation(simulation_t *sim);
+void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures, int mode);
 int createsim(simulation_t *sim, ALLEGRO_BITMAP** textura); //listo
-float thousandsimulaciones(simulation_t *sim, int x)
+float thousandsimulaciones(simulation_t *sim, int x);
 
 
 #endif //EDATP2_FUNCIONAMIENTO_H
