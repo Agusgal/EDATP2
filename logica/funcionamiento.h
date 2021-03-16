@@ -37,6 +37,7 @@ int createrobots(simulation_t* sim, ALLEGRO_BITMAP** textura); // listo
 void deleterobots ( robot_t* robots);
 void moveRobots(simulation_t *sim);
 void cleanFloor(simulation_t* sim);
+void deletefloor( tile_t** floor );
 
 
 bool checkclean(simulation_t* sim);

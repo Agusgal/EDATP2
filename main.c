@@ -35,17 +35,26 @@ int main(int argc, char* argv[])
     /*if (mode == 2)
     {
 
-        float* mean;
-        
-        for(int x=1; (mean[x] - mean[x-1]) >=  0.1 || x=1 || x=0 ; x++)
+        float* mean = (float*)malloc (sizeof(float));
+        int x=1;
+        sim->numRobots = x;
+        mean[x-1] = TICK2TIME(thousandsimulaciones(&sim, x)); 
+
+        do
         {
-            createsim(&sim, textures);  //todo: La simulacion deberia ser creada en thou
+            x++;
             sim->numRobots = x;
             mean = (float)realloc(mean, x);
+            if (mean == NULL)
+            {
+                return -1;                      // si falla y no sabemos pq es por esto
+            }
             mean[x-1] = TICK2TIME(thousandsimulaciones(&sim, x)); 
-        }
+
+            
+        } while ((mean[x] - mean[x-1]) >=  0.1) ;
         
-        if (draw_histogram(mean) == -1)
+        if (draw_histogram(mean, x) == -1)
             {
                 return -1;
             }
