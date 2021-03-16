@@ -29,6 +29,7 @@
 #define ANG2RAD(x) (((x) * (PI))/180)  // buscar un pi mas preciso en libreria
 #define TIME 1 // a cuantos segundos equivale un tick
 #define TICK2TIME(x)  ( ( (x) * (TIME) ) / (1) )    // Todo: medio aldope el "1" XD
+#define SIMULATION_N 1000
 
 
 int createFloor(simulation_t *sim, ALLEGRO_BITMAP** textura);

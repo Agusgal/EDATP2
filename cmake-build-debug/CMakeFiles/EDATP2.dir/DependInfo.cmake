@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/graficos/graficos.c.o"
-  "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o"
-  "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/main.c.o"
+  "/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.c" "/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/graficos/graficos.c.o"
+  "/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c" "/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o"
+  "/Users/agustin/Documents/GitHub/EDATP2/main.c" "/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

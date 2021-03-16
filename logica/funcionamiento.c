@@ -244,7 +244,7 @@ void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures, int mode)
         if(mode == 1) {
             drawFloor(sim, textures);
             drawRobot(sim);
-            //drawUI(&sim);
+            //drawUI(&sim); TODO: porque esta esto aca??
 
             al_flip_display();
 
@@ -258,8 +258,8 @@ void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures, int mode)
 
     }
 
-    deleterobots( sim->robots);
-    deletefloor ( sim);
+    deleterobots(sim->robots);
+    deletefloor(sim);
 
 }
 
@@ -269,12 +269,13 @@ float thousandsimulaciones(simulation_t *sim, int x)
     int cont = 0;
     float ticks = 0;
     
-    while (cont < 1000)
+    while (cont < SIMULATION_N)
     {
         createsim(sim,NULL);
         runsimulation(sim , NULL , 2);
-        ticks += ( ( (float)sim->tickCount ) / 1000 );
+        ticks += (((float)sim->tickCount) / SIMULATION_N);
         cont++;
     }
+    printf("Se tardó %f ticks en correr 1000 simulaciones con %d robots.\n", ticks, sim->numRobots);
     return ticks;
 }

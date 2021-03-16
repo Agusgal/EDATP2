@@ -262,8 +262,8 @@ int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura) {
     }
 
     return 0;
-
 }
+
 
 int draw_histogram(float* mean, int quant)
 {
