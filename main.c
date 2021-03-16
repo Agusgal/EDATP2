@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    display = al_create_display(SCREENWEIGHT, SCREENHEIGHT);
+    display = al_create_display(SCREENWIDTH, SCREENHEIGHT);
     if (!display) {
         fprintf(stderr, "failed to display!\n");
         return -1;
@@ -49,8 +49,6 @@ int main(int argc, char* argv[])
                 return -1;                      // si falla y no sabemos pq es por esto
             }
             mean[x-1] = TICK2TIME(thousandsimulaciones(&sim, x));
-
-
 
         } while ((mean[x] - mean[x-1]) >=  0.1) ;
 

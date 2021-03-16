@@ -14,6 +14,12 @@ allegro5/bitmap.h
 
 /Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
 
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c
+graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+../logica/funcionamiento.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
+
 /Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
 stdio.h
 -
@@ -67,14 +73,6 @@ allegro5/allegro_font.h
 -
 allegro5/allegro_ttf.h
 -
-
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c
-stdio.h
--
-graficos/graficos.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
-logica/funcionamiento.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
 
 /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/alcompat.h
 

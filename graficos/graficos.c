@@ -15,7 +15,7 @@
         return -1;
     }
 
-    display = al_create_display(SCREENWEIGHT, SCREENHEIGHT);
+    display = al_create_display(SCREENWIDTH, SCREENHEIGHT);
     if (!display) {
         fprintf(stderr, "failed to display!\n");
         return -1;
@@ -111,7 +111,7 @@ int drawUI(simulation_t* sim) {
     }
 
     sprintf(buffer, "Gen %d", sim->tickCount);
-    al_draw_text(font, WHITE, SCREENWEIGHT *7/8, SCREENHEIGHT * 7 / 8, ALLEGRO_ALIGN_CENTRE, buffer);
+    al_draw_text(font, WHITE, SCREENWIDTH * 7 / 8, SCREENHEIGHT * 7 / 8, ALLEGRO_ALIGN_CENTRE, buffer);
 
     return 0;
 
@@ -121,21 +121,29 @@ void drawFloor(simulation_t* sim, ALLEGRO_BITMAP** textures)
 {
 
     float scale = getScale(sim->w, sim->h);
+    int offsetX = 0, offsetY = 0;
+
+
+    offsetX = SCREENWIDTH / 2 - sim->w * scale * PIXELSPERUNIT/2;
+    offsetY = SCREENHEIGHT / 2 - sim->h * scale * PIXELSPERUNIT/2; //TODO: puede fallar, si falla agregar lo que esta en escala
+
 
     for (int i = 0; i < sim->h; i++) {
         for (int j = 0; j < sim->w; j++) {
 
             float posX = sim->floor[i][j].xPos * scale;
             float posY = sim->floor[i][j].yPos * scale;
+            int imgWidth = al_get_bitmap_width(sim->floor[i][j].texture);
+            int imgHeight = al_get_bitmap_height(sim->floor[i][j].texture);
+
 
             if(sim->floor[i][j].state == CLEAN){
-                al_draw_scaled_bitmap(textures[GREENTILEIMG], 0, 0, al_get_bitmap_width(sim->floor[i][j].texture), al_get_bitmap_height(sim->floor[i][j].texture),
-                                      posX, posY, al_get_bitmap_width(sim->floor[i][j].texture) * scale, al_get_bitmap_height(sim->floor[i][j].texture) * scale, 0);
-
+                al_draw_scaled_bitmap(textures[GREENTILEIMG], 0, 0, imgWidth, imgHeight, posX + offsetX, posY + offsetY,
+                                                                        imgWidth * scale, imgHeight * scale, 0);
             }
             else{
-                al_draw_scaled_bitmap(textures[REDTILEIMG], 0, 0, al_get_bitmap_width(sim->floor[i][j].texture), al_get_bitmap_height(sim->floor[i][j].texture),
-                                      posX, posY, al_get_bitmap_width(sim->floor[i][j].texture) * scale, al_get_bitmap_height(sim->floor[i][j].texture) * scale, 0);
+                al_draw_scaled_bitmap(textures[REDTILEIMG], 0, 0, imgWidth, imgHeight, posX + offsetX, posY + offsetY,
+                                                                        imgWidth * scale, imgHeight * scale, 0);
             }
 
 
@@ -149,9 +157,13 @@ void drawRobot(simulation_t* sim)
 {
 
     float scale = getScale(sim->w, sim->h);
+    int offsetX = 0, offsetY = 0;
 
     int tileW = al_get_bitmap_width(sim->floor[0][0].texture);
     int tileH = al_get_bitmap_height(sim->floor[0][0].texture);
+
+    offsetX = SCREENWIDTH / 2 - sim->w * scale * PIXELSPERUNIT/2;
+    offsetY = SCREENHEIGHT / 2 - sim->h * scale * PIXELSPERUNIT/2;
 
     for (int i = 0; i < sim->numRobots; i++) {
 
@@ -161,23 +173,24 @@ void drawRobot(simulation_t* sim)
         int imgH = al_get_bitmap_height(sim->robots[i].texture);
         float angle = sim->robots[i].angle;
 
-        al_draw_scaled_bitmap(sim->robots[i].texture, 0, 0, imgW, imgH, (tilex * tileW + (tileW - imgW)/2) * scale, (tiley * tileH + (tileH - imgH) / 2) * scale,
-                             imgW * scale, imgH * scale, 0);
+
+        al_draw_scaled_bitmap(sim->robots[i].texture, 0, 0, imgW, imgH, (tilex * tileW + (tileW - imgW)/2) * scale + offsetX , (tiley * tileH + (tileH - imgH) / 2) * scale + offsetY,
+                                                            imgW * scale, imgH * scale , 0);
 
         imgW = al_get_bitmap_width(sim->robots[i].arrow);
         imgH = al_get_bitmap_height(sim->robots[i].arrow);
 
-        al_draw_scaled_rotated_bitmap(sim->robots[i].arrow, imgW/2, imgH, (tilex * tileW + imgH / 2)*scale, (tiley * tileH + imgH / 2) * scale, scale, scale, ANG2RAD(angle+90), 0);
+        al_draw_scaled_rotated_bitmap(sim->robots[i].arrow, imgW/2, imgH, (tilex * tileW + imgH / 2)*scale + offsetX, (tiley * tileH + imgH / 2) * scale + offsetY, scale, scale, ANG2RAD(angle+90), 0);
     }
 
 }
 
 float getScale(int w, int h) {
-    if ((SCREENHEIGHT / h) <= (SCREENWEIGHT / w)) {
+    if ((SCREENHEIGHT / h) <= (SCREENWIDTH / w)) {
         return (float)SCREENHEIGHT / (float)h / (float)PIXELSPERUNIT;
     }
     else {
-        return (float)SCREENWEIGHT / (float)w / (float)PIXELSPERUNIT;
+        return (float)SCREENWIDTH / (float)w / (float)PIXELSPERUNIT;
     }
 
 }

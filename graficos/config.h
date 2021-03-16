@@ -3,7 +3,7 @@
 
 #define PIXELSPERUNIT 16
 #define NUMOFTEXTURES 4
-#define SCREENWEIGHT 1920
+#define SCREENWIDTH 1920
 #define SCREENHEIGHT 1080
 
 // Constantes y Macros del Histograma
