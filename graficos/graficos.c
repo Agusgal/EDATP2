@@ -176,7 +176,6 @@ float getScale(int w, int h) {
 
 }
 
-// 0 si cargo todoo bien, sino 1
 int loadTextures(ALLEGRO_BITMAP** textura) {
 
     //Definimos un buffer y una variable auxiliar para error.
@@ -253,11 +252,6 @@ int draw_histogram(float* mean, int quant)
             sprintf(arr, "%d", j + 1);
             al_draw_text(font, BLACK, (X_FIN(j, quant) + X_INIT(j, quant)) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
 
-            /*
-            // Dibujamos los Y ticks.
-            sprintf(arr, "%.2f", mean[j]);
-            al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, RECT_HEIGHT(j) - FONT_SIZE / 2, ALLEGRO_ALIGN_CENTRE, arr);
-            */
         }
 
         //Actualizamos el display y esperamos un tiempo para que se aprecie la animación.
@@ -280,17 +274,7 @@ void destroy_all(simulation_t* sim, ALLEGRO_BITMAP** textures, ALLEGRO_DISPLAY* 
         al_destroy_bitmap(textures[i]);
     }
 
-    //Liberamos del heap, las memorias de los robots.
-    free(sim->robots);
-
-    //Liberamos del heap, las memorias del piso.
-    for (int i = 0; i < sim->h; i++) {
-        free(sim->floor[i]);
-    }
-    free(sim->floor);
-
     // Destruimos display y addons de Allegro.
-    al_destroy_display(display);
     al_shutdown_font_addon();
     al_shutdown_primitives_addon();
     al_shutdown_image_addon();

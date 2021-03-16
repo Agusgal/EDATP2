@@ -39,6 +39,7 @@ typedef struct {
     int tickCount;
     robot_t* robots;
     tile_t** floor;
+    int modo;
 }simulation_t;
 
 

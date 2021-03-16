@@ -44,7 +44,7 @@ void deletefloor(simulation_t* sim);
 bool checkclean(simulation_t* sim);
 
 
-void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures, int mode);
+void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures);
 int createsim(simulation_t *sim, ALLEGRO_BITMAP** textura); //listo
 float thousandsimulaciones(simulation_t *sim, int x);
 

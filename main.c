@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "graficos/graficos.h"
 #include "logica/funcionamiento.h"
+#include "parser/parser.h"
 
 
 int main(int argc, char* argv[])
@@ -11,11 +12,19 @@ int main(int argc, char* argv[])
     
     // Declaramos la simulación.
     simulation_t sim;
+    
+    /*
     // Declaramos el modo de la simulación.
     int mode;
 
     // Recoge datos del usuario
     showMainMenu(&sim, &mode);
+    */
+
+    if (parseCmdLine(argc, argv, &parseCallback, &sim)==-1)
+    {
+        return -1;
+    }
 
     // Inicializaciones allegro
     if (init_allegro()) {
@@ -39,7 +48,7 @@ int main(int argc, char* argv[])
     // Inicializamos la simulación.
     createsim(&sim, textures);
 
-    if (mode == 2)
+    if (sim.modo == 2)
     {
     // Sólo si estamos en modo 2.
 
@@ -86,16 +95,66 @@ int main(int argc, char* argv[])
         }
 
     }
-    else if (mode == 1)
+    else if (sim.modo == 1)
     {   
     // Si estoy en el modo 1.
 
         // Corro la simulación mostrandola en pantalla.
-        runsimulation(&sim, textures, mode);
+        runsimulation(&sim, textures, sim.modo);
+
+        //Destruimos los recursos de allegro.
+        destroy_all(&sim, textures, display);
 
         // Aclaramos por consola, la cantidad de ticks que se tardó en limpiar el piso.
         printf(" el numero de ticks que tardo en completar la limpieza fue %d ", sim.tickCount);
     }
 
     return 0;
+}
+
+int parseCallback(char *key, char *value, void *userData)
+{
+    simulation_t * Data = userData;   // "Casteamos" el puntero al formato de nuestra
+                                      // estructura.
+    
+    if (!strcmp(key, "height"))        
+    {
+        long int temp = atol(value);    // Si Key="height" ==> guardamos value en el campo altura.
+        if (!temp)
+        {
+            return ERROR_CALLBACK;
+        }
+        Data->h = temp;
+    }
+    else if (!strcmp(key, "weight"))
+    {
+        long int temp = atol(value);    // Si Key="weight" ==> guardamos value en el campo ancho.
+        if (!temp)
+        {
+            return ERROR_CALLBACK;
+        }
+        Data->w = temp;
+    }
+    else if (!strcmp(key, "robots"))
+    {    
+        long int temp = atol(value);    // Si Key="robots" ==> guardamos value en el campo robots.
+        if (!temp)
+        {
+            return ERROR_CALLBACK;
+        }
+        Data->robots = temp;
+    }
+    else if (!strcmp(key, "modo"))
+    {    
+        long int temp = atol(value);    // Si Key="modo" ==> guardamos value en el campo modo.
+        if (!temp)
+        {
+            return ERROR_CALLBACK;
+        }
+        Data->modo = temp;
+    }
+    else{
+        return ERROR_CALLBACK;
+    }
+    return OK;
 }

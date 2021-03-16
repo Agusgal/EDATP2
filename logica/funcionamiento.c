@@ -233,18 +233,17 @@ bool checkclean(simulation_t*sim)
     return itsclean;
 }
 
-void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures, int mode)
+void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures)
 {
 
     while (!checkclean(sim))
     {
         cleanFloor(sim);
 
-        if(mode == 1) {
+        if(sim->modo == 1) {
             drawFloor(sim, textures);
             drawRobot(sim);
-            //drawUI(&sim); TODO: porque esta esto aca??
-
+            
             al_flip_display();
 
             al_rest(TICK2TIME(TIME));
