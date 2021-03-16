@@ -330,11 +330,11 @@ int draw_histogram(float* mean, int quant)
         al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF + 15, X_MARGIN_LEFT, Y_MARGIN_SUP - 5, WHITE, 2);
         
 
-        for(int j=1; j<NUM_Y_TICKS; j++)
+        for(int j=1; j<=NUM_Y_TICKS; j++)
         {
             // Dibujamos las lineas auxiliares y los y_ticks
             al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j, HIST_X - X_MARGIN_RIGHT, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j, WHITE, 1);
-            sprintf(arr, "%.2f", mean[0]/j);
+            sprintf(arr, "%.2f", j*mean[0]/NUM_Y_TICKS);
             al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j - FONT_SIZE / 2, ALLEGRO_ALIGN_CENTRE, arr);
         }
 
