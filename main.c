@@ -32,87 +32,36 @@ int main(int argc, char* argv[])
 
     createsim(&sim, textures);
 
-    /*if (mode == 2)
+    if (mode == 2)
     {
-
         float* mean = (float*)malloc (sizeof(float));
-        int x=1;
-        sim->numRobots = x;
+        int x = 1;
+        sim.numRobots = x;
         mean[x-1] = TICK2TIME(thousandsimulaciones(&sim, x)); 
 
         do
         {
             x++;
-            sim->numRobots = x;
-            mean = (float)realloc(mean, x);
+            sim.numRobots = x;
+            mean = (float*) realloc(mean, sizeof(float) * x);
             if (mean == NULL)
             {
                 return -1;                      // si falla y no sabemos pq es por esto
             }
-            mean[x-1] = TICK2TIME(thousandsimulaciones(&sim, x)); 
+            mean[x-1] = TICK2TIME(thousandsimulaciones(&sim, x));
 
-            
+
+
         } while ((mean[x] - mean[x-1]) >=  0.1) ;
-        
+
         if (draw_histogram(mean, x) == -1)
-            {
-                return -1;
-            }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        int x = 0;
-        funcion_t* funcion = (funcion_t*)malloc(sizeof(funcion_t)); // falta correjir
-        if (funcion != NULL)
         {
-
-            funcion->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, 1));
-            funcion->cantrob = 1;
-
-            do
-            {
-                x++;
-
-                funcion = (funcion_t*)realloc(funcion, sizeof(funcion_t) * (x + 1));
-
-                if (funcion == NULL)
-                {
-                    return -1;                      // si falla y no sabemos pq es por esto
-                }
-
-                
-                //(funcion + (x))->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, x + 1));
-                //(funcion + (x))->cantrob = x + 1;
-
-                funcion[x].tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, x + 1)); 
-                funcion[x].cantrob = x + 1;
-
-            } while ( (funcion[x].tiempomedio - funcion[x-1].tiempomedio) >=  0.1);
-
-            if (int draw_histogram(float* mean, int quant)== -1)
-            {
-                return -1;
-            }
+            fprintf(stderr, "failed to draw histogram!\n");
+            return -1;
         }
-        else
-        {
-            free(funcion);
-        }
-    }*/
 
-    if (mode == 1)
+    }
+    else if (mode == 1)
     {
         runsimulation(&sim, textures, mode);
         printf(" el numero de ticks que tardo en completar la limpieza fue %d ", sim.tickCount);

@@ -80,8 +80,10 @@ int createrobots(simulation_t* sim, ALLEGRO_BITMAP** textura)
 
         for (int i = 0; i < sim->numRobots; i++)
         {
-            sim->robots[i].texture = textura[CLEANERIMG];
-            sim->robots[i].arrow = textura[ARROWIMG];
+            if(textura != NULL) {
+                sim->robots[i].texture = textura[CLEANERIMG];
+                sim->robots[i].arrow = textura[ARROWIMG];
+            }
             sim->robots[i].xPos = (rand() % (sim->w)) + ((rand() % (10)) * (0.1));//Todo hay casteo que se tiene que arreglar
             sim->robots[i].yPos = (rand() % (sim->h)) + ((rand() % (10)) * (0.1));
             sim->robots[i].angle = (rand() % 361);
@@ -91,6 +93,8 @@ int createrobots(simulation_t* sim, ALLEGRO_BITMAP** textura)
     {
         free(sim->robots);
     }
+
+    return 0;
 }
 
 int createFloor(simulation_t *sim, ALLEGRO_BITMAP** textura)
@@ -116,7 +120,9 @@ int createFloor(simulation_t *sim, ALLEGRO_BITMAP** textura)
     for (int i = 0; i < sim->h; i++) {
         for (int j = 0; j < sim->w; j++) {
 
-            sim->floor[i][j].texture = textura[REDTILEIMG];
+            if(textura != NULL){
+                sim->floor[i][j].texture = textura[REDTILEIMG];
+            }
             sim->floor[i][j].state = DIRTY;
             sim->floor[i][j].yPos = i * PIXELSPERUNIT;
             sim->floor[i][j].xPos = j * PIXELSPERUNIT;
@@ -134,7 +140,7 @@ void deleterobots(robot_t* robots)
         free(robots);
     }
 }
-void deletefloor( tile_t** floor )
+void deletefloor(simulation_t* sim)
 {
     for (int i = 0; i < sim->h; i++) {
         free(sim->floor[i]);
@@ -173,9 +179,9 @@ void moveRobots(simulation_t *sim)
         }
         else
         {
-            error = 1;
+            sim->robots[i].angle = (rand() % 360);
         }
-
+/*
         while (error == 1)
         {
             sim->robots[i].angle = (rand() % 360);
@@ -193,7 +199,7 @@ void moveRobots(simulation_t *sim)
             {
                 error = 1;
             }
-        }
+        }*/
     }
 }
 
@@ -243,33 +249,32 @@ void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures, int mode)
             al_flip_display();
 
             al_rest(TICK2TIME(TIME));
+            al_clear_to_color(BLACK);
         }
 
         moveRobots(sim);
 
         sim->tickCount++;
 
-        
-
-
     }
+
     deleterobots( sim->robots);
-    deletefloor ( sim ->floor);
+    deletefloor ( sim);
 
 }
 
 
-/*float thousandsimulaciones(simulation_t *sim, int x)
+float thousandsimulaciones(simulation_t *sim, int x)
 {
     int cont = 0;
     float ticks = 0;
     
     while (cont < 1000)
     {
-        createsim(&sim, textures);  //todo: La simulacion deberia ser creada en thou
-        sim = runsimulation(sim , NULL , 2);
-        ticks += ( ( (float)simulacion->tickCount ) / 1000 );
+        createsim(sim,NULL);
+        runsimulation(sim , NULL , 2);
+        ticks += ( ( (float)sim->tickCount ) / 1000 );
         cont++;
     }
     return ticks;
-}*/
+}

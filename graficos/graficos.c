@@ -1,5 +1,5 @@
 #include "graficos.h"
-
+#include "../logica/funcionamiento.h"
 
 /*int main()
 {
@@ -167,7 +167,7 @@ void drawRobot(simulation_t* sim)
         imgW = al_get_bitmap_width(sim->robots[i].arrow);
         imgH = al_get_bitmap_height(sim->robots[i].arrow);
 
-        al_draw_scaled_rotated_bitmap(sim->robots[i].arrow, imgW/2, imgH, (tilex * tileW + imgH / 2)*scale, (tiley * tileH + imgH / 2) * scale, scale, scale, angle + 90, 0);
+        al_draw_scaled_rotated_bitmap(sim->robots[i].arrow, imgW/2, imgH, (tilex * tileW + imgH / 2)*scale, (tiley * tileH + imgH / 2) * scale, scale, scale, ANG2RAD(angle+90), 0);
     }
 
 }
@@ -271,12 +271,12 @@ int draw_histogram(float* mean, int quant)
         al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF + 15, X_MARGIN_LEFT, Y_MARGIN_SUP - 5, WHITE, 2);
         
         // Escribimos que es cada eje.
-        al_draw_text(font, BLUE, HIST_X - X_MARGIN_LEFT + 10, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, "Robots");
-        al_draw_text(font, BLUE, X_MARGIN_LEFT / 2, 5, ALLEGRO_ALIGN_CENTRE, "Tiempo");
+        al_draw_text(font, WHITE, HIST_X - X_MARGIN_LEFT + 10, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, "Robots");
+        al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, 5, ALLEGRO_ALIGN_CENTRE, "Tiempo");
 
         for (int j = 0; j <= i; j++)
         {
-            // Dibujamos el rect�ngulo.
+            // Dibujamos el rectangulo.
             al_draw_filled_rectangle(X_INIT(j, quant), HIST_Y - Y_MARGIN_INF, X_FIN(j, quant), RECT_HEIGHT(j), RED);
 
             // Dibujamos los X ticks.

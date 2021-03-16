@@ -5,6 +5,7 @@ CMakeFiles/EDATP2.dir/graficos/graficos.c.o: ../estructuras/estructuras.h
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: ../graficos/config.h
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: ../graficos/graficos.c
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: ../graficos/graficos.h
+CMakeFiles/EDATP2.dir/graficos/graficos.c.o: ../logica/funcionamiento.h
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/alcompat.h
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/allegro.h
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/allegro5.h
