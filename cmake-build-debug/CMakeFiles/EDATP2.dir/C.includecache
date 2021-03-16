@@ -42,6 +42,12 @@ config.h
 ../estructuras/estructuras.h
 /Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
 
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c
+funcionamiento.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
+../graficos/graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+
 /Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
 stdio.h
 -
@@ -68,6 +74,26 @@ allegro5/allegro_image.h
 allegro5/allegro_font.h
 -
 allegro5/allegro_ttf.h
+-
+
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c
+stdio.h
+-
+graficos/graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+logica/funcionamiento.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
+parser/parser.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.h
+
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.h
+stdio.h
+-
+stdlib.h
+-
+stddef.h
+-
+string.h
 -
 
 /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/alcompat.h

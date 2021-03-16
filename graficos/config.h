@@ -3,8 +3,8 @@
 
 #define PIXELSPERUNIT 16
 #define NUMOFTEXTURES 4
-#define SCREENWIDTH 800
-#define SCREENHEIGHT 600
+#define SCREENWIDTH 1366
+#define SCREENHEIGHT 768
 
 // Constantes y Macros del Histograma
 #define HIST_X  SCREENWIDTH * 9/10
