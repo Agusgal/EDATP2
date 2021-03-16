@@ -28,18 +28,13 @@ typedef struct {
 }robot_t;
 
 typedef struct {
-    int cantrob;
-    float tiempomedio;
-}funcion_t ;
-
-typedef struct {
     int w;
     int h;
     int numRobots;
     int tickCount;
     robot_t* robots;
     tile_t** floor;
-    int modo;
+    int mode;
 }simulation_t;
 
 

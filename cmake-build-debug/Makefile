@@ -68,10 +68,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/agustin/Documents/GitHub/EDATP2
+CMAKE_SOURCE_DIR = "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug
+CMAKE_BINARY_DIR = "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -224,6 +224,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/EDATP2.dir/build.make CMakeFiles/EDATP2.dir/main.c.s
 .PHONY : main.c.s
 
+parser/parser.o: parser/parser.c.o
+
+.PHONY : parser/parser.o
+
+# target to build an object file
+parser/parser.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EDATP2.dir/build.make CMakeFiles/EDATP2.dir/parser/parser.c.o
+.PHONY : parser/parser.c.o
+
+parser/parser.i: parser/parser.c.i
+
+.PHONY : parser/parser.i
+
+# target to preprocess a source file
+parser/parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EDATP2.dir/build.make CMakeFiles/EDATP2.dir/parser/parser.c.i
+.PHONY : parser/parser.c.i
+
+parser/parser.s: parser/parser.c.s
+
+.PHONY : parser/parser.s
+
+# target to generate assembly for a file
+parser/parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/EDATP2.dir/build.make CMakeFiles/EDATP2.dir/parser/parser.c.s
+.PHONY : parser/parser.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -242,6 +269,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... parser/parser.o"
+	@echo "... parser/parser.i"
+	@echo "... parser/parser.s"
 .PHONY : help
 
 

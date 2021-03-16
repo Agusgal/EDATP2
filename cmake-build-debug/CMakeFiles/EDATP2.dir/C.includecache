@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
 stdbool.h
 -
 allegro5/bitmap.h
 -
 
-/Users/agustin/Documents/GitHub/EDATP2/graficos/config.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
 
-/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.c
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c
 graficos.h
-/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
 ../logica/funcionamiento.h
-/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
 
-/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
 stdio.h
 -
 math.h
@@ -29,11 +29,7 @@ stdlib.h
 -
 allegro5/allegro5.h
 -
-allegro5/allegro_native_dialog.h
--
 allegro5/allegro_color.h
--
-allegro5/allegro_primitives.h
 -
 allegro5/allegro_image.h
 -
@@ -42,17 +38,11 @@ allegro5/allegro_font.h
 allegro5/allegro_ttf.h
 -
 config.h
-/Users/agustin/Documents/GitHub/EDATP2/graficos/config.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
 ../estructuras/estructuras.h
-/Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
 
-/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c
-funcionamiento.h
-/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
-../graficos/graficos.h
-/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
-
-/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
 stdio.h
 -
 stdlib.h
@@ -62,9 +52,9 @@ math.h
 stdbool.h
 -
 ../estructuras/estructuras.h
-/Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
 ../graficos/config.h
-/Users/agustin/Documents/GitHub/EDATP2/graficos/config.h
+/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
 allegro5/allegro5.h
 -
 allegro5/allegro_native_dialog.h
@@ -79,14 +69,6 @@ allegro5/allegro_font.h
 -
 allegro5/allegro_ttf.h
 -
-
-/Users/agustin/Documents/GitHub/EDATP2/main.c
-stdio.h
--
-graficos/graficos.h
-/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
-logica/funcionamiento.h
-/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
 
 /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/alcompat.h
 

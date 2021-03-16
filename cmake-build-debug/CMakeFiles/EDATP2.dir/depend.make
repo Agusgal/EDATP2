@@ -146,6 +146,7 @@ CMakeFiles/EDATP2.dir/main.c.o: ../graficos/config.h
 CMakeFiles/EDATP2.dir/main.c.o: ../graficos/graficos.h
 CMakeFiles/EDATP2.dir/main.c.o: ../logica/funcionamiento.h
 CMakeFiles/EDATP2.dir/main.c.o: ../main.c
+CMakeFiles/EDATP2.dir/main.c.o: ../parser/parser.h
 CMakeFiles/EDATP2.dir/main.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/alcompat.h
 CMakeFiles/EDATP2.dir/main.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/allegro.h
 CMakeFiles/EDATP2.dir/main.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/allegro5.h
@@ -210,4 +211,7 @@ CMakeFiles/EDATP2.dir/main.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegr
 CMakeFiles/EDATP2.dir/main.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/touch_input.h
 CMakeFiles/EDATP2.dir/main.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/transformations.h
 CMakeFiles/EDATP2.dir/main.c.o: /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/utf8.h
+
+CMakeFiles/EDATP2.dir/parser/parser.c.o: ../parser/parser.c
+CMakeFiles/EDATP2.dir/parser/parser.c.o: ../parser/parser.h
 

@@ -23,12 +23,11 @@
 
 
 #define PI          acos(-1)
-#define SIZE(v) (sizeof(v)/sizeof(v[0]))
 #define CLEAN 0
 #define DIRTY 1
 #define ANG2RAD(x) (((x) * (PI))/180)  // buscar un pi mas preciso en libreria
 #define TIME 1 // a cuantos segundos equivale un tick
-#define TICK2TIME(x)  ( ( (x) * (TIME) ) / (1) )    // Todo: medio aldope el "1" XD
+#define TICK2TIME(x)  ( ( (x) * (TIME) ) )
 #define SIMULATION_N 1000
 
 
@@ -46,7 +45,7 @@ bool checkclean(simulation_t* sim);
 
 void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures);
 int createsim(simulation_t *sim, ALLEGRO_BITMAP** textura); //listo
-float thousandsimulaciones(simulation_t *sim, int x);
+float thousandsimulaciones(simulation_t *sim);
 
 
 #endif //EDATP2_FUNCIONAMIENTO_H

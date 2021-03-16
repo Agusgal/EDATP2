@@ -5,63 +5,6 @@
 #include "funcionamiento.h"
 #include "../graficos/graficos.h"
 
-/*int main(void)
-{
-    int modo = 1;
-    long ancho = 2;
-    long alto = 3;
-    int cantrob = 2;
-    if (modo)
-    {
-
-        int x = 0;
-        funcion_t* funcion = (funcion_t*)malloc(sizeof(funcion_t)); // falta correjir
-        if (funcion != NULL)
-        {
-
-            (funcion )->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, 1));
-            (funcion )->cantrob = 1;
-
-            do
-            {
-                x++;
-
-                funcion = (funcion_t*)realloc(funcion, sizeof(funcion_t) * (x + 1));
-
-                if (funcion == NULL)
-                {
-                    return -1;                      // si falla y no sabemos pq es por esto
-                }
-
-                (funcion + (x))->tiempomedio = TICK2TIME(thousandsimulaciones(ancho, alto, x + 1));
-
-
-
-                (funcion + (x))->cantrob = (x + 1);
-
-
-
-
-            } while ( ( (*( funcion + (x ) )).tiempomedio) - (((*(funcion + (x - 1))).tiempomedio)) >=  0.1);
-
-        }
-        else
-        {
-            free(funcion);
-        }
-    }
-
-    else if (modo == 1)
-    {
-        simulation_t* simu = runsimulation(ancho, alto, cantrob, modo);
-        printf(" el numero de ticks que tardo en completar la limpieza fue %d ", simu->tickcount);
-
-    }
-
-    return 0;
-}*/
-
-
 
 int createrobots(simulation_t* sim, ALLEGRO_BITMAP** textura)
 {
@@ -83,7 +26,7 @@ int createrobots(simulation_t* sim, ALLEGRO_BITMAP** textura)
                 sim->robots[i].texture = textura[CLEANERIMG];
                 sim->robots[i].arrow = textura[ARROWIMG];
             }
-            sim->robots[i].xPos = (rand() % (sim->w)) + ((rand() % (10)) * (0.1));//Todo hay casteo que se tiene que arreglar
+            sim->robots[i].xPos = (rand() % (sim->w)) + ((rand() % (10)) * (0.1));
             sim->robots[i].yPos = (rand() % (sim->h)) + ((rand() % (10)) * (0.1));
             sim->robots[i].angle = (rand() % 361);
         }
@@ -180,25 +123,7 @@ void moveRobots(simulation_t *sim)
         {
             sim->robots[i].angle = (rand() % 360);
         }
-/*
-        while (error == 1)
-        {
-            sim->robots[i].angle = (rand() % 360);
-            nextx = sim->robots[i].xPos + cos(ANG2RAD(sim->robots[i].angle));
-            nexty = sim->robots[i].yPos + sin(ANG2RAD(sim->robots[i].angle));
 
-            error = 0;
-            if ((nextx >= 0) && (nextx < sim->w) && (nexty >= 0) && (nexty < sim->h))
-            {
-                //muevo ambos robots
-                sim->robots[i].yPos = nexty;
-                sim->robots[i].xPos = nextx;
-            }
-            else
-            {
-                error = 1;
-            }
-        }*/
     }
 }
 
@@ -240,7 +165,7 @@ void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures)
     {
         cleanFloor(sim);
 
-        if(sim->modo == 1) {
+        if(sim->mode == 1) {
             drawFloor(sim, textures);
             drawRobot(sim);
             
@@ -262,7 +187,7 @@ void runsimulation(simulation_t *sim, ALLEGRO_BITMAP** textures)
 }
 
 
-float thousandsimulaciones(simulation_t *sim, int x)
+float thousandsimulaciones(simulation_t *sim)
 {
     int cont = 0;
     float ticks = 0;
@@ -270,7 +195,7 @@ float thousandsimulaciones(simulation_t *sim, int x)
     while (cont < SIMULATION_N)
     {
         createsim(sim,NULL);
-        runsimulation(sim , NULL , 2);
+        runsimulation(sim , NULL);
         ticks += (((float)sim->tickCount) / SIMULATION_N);
         cont++;
     }

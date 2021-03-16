@@ -3,7 +3,7 @@ project(EDATP2)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(EDATP2 main.c graficos/graficos.c graficos/graficos.h graficos/config.h logica/funcionamiento.c logica/funcionamiento.h estructuras/estructuras.h)
+add_executable(EDATP2 main.c graficos/graficos.c graficos/graficos.h graficos/config.h logica/funcionamiento.c logica/funcionamiento.h estructuras/estructuras.h parser/parser.c parser/parser.h)
 
 
 INCLUDE_DIRECTORIES( /usr/local/Cellar/allegro/5.2.7.0/include )

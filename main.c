@@ -3,26 +3,19 @@
 #include "logica/funcionamiento.h"
 #include "parser/parser.h"
 
+int parseCallback(char *key, char *value, void *userData);
 
 int main(int argc, char* argv[])
 {
     // Punteros de allegro.
-    ALLEGRO_BITMAP* textures[NUMOFTEXTURES];
+    ALLEGRO_BITMAP* textures[NUMOFTEXTURES] = {NULL};
     ALLEGRO_DISPLAY* display = NULL;
-    
-    // Declaramos la simulación.
-    simulation_t sim;
-    
-    /*
-    // Declaramos el modo de la simulación.
-    int mode;
+    simulation_t sim = {.robots = NULL, .floor = NULL};     // Declaramos la simulación.
 
-    // Recoge datos del usuario
-    showMainMenu(&sim, &mode);
-    */
-
-    if (parseCmdLine(argc, argv, &parseCallback, &sim)==-1)
+    //Leemos la entrada pasada por comando
+    if (parseCmdLine(argc, argv, &parseCallback, &sim) == -1)
     {
+        fprintf(stderr, "failed to parse command line!\n");
         return -1;
     }
 
@@ -45,12 +38,23 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    // Inicializamos la simulación.
-    createsim(&sim, textures);
-
-    if (sim.modo == 2)
+    if (sim.mode == 2)
     {
-    // Sólo si estamos en modo 2.
+        // Sólo si estamos en mode 2.
+
+        //Cargamos la pantalla de carga
+        ALLEGRO_BITMAP* loadingScreen = al_load_bitmap("../graficos/resources/textures/loadingScreen.png");
+
+        if(loadingScreen == NULL){
+            fprintf(stderr, "Could not loading screen image.\n");
+            return -1;
+        }
+        else{   //Si no hubo error al cargarla, la dibujamos
+            int iW = al_get_bitmap_width(loadingScreen);
+            int iH = al_get_bitmap_height(loadingScreen);
+            al_draw_bitmap(loadingScreen, SCREENWIDTH/2 - iW/2,SCREENHEIGHT/2 - iH/2,0);
+            al_flip_display();
+        }
 
         //Reservamos memoria para el arreglo de promedios.
         float* mean = (float*)malloc(sizeof(float));
@@ -61,7 +65,7 @@ int main(int argc, char* argv[])
 
         // Guardamos como primer elemento del arreglo promedios la traducción de la macro
         // del promedio de las 1000 simulaciones.
-        mean[robots-1] = TICK2TIME(thousandsimulaciones(&sim, robots));
+        mean[robots-1] = TICK2TIME(thousandsimulaciones(&sim));
 
         do
         {
@@ -81,7 +85,7 @@ int main(int argc, char* argv[])
 
             // Guardamos como robot-esimo elemento del arreglo de promedios la traducción de la macro
             // del promedio de las 1000 simulaciones con cantidad "robots" de robots.
-            mean[robots-1] = TICK2TIME(thousandsimulaciones(&sim, robots));
+            mean[robots-1] = TICK2TIME(thousandsimulaciones(&sim));
 
         // Repetimos el bucle hasta que el promedio converja.
         } while (fabs(mean[robots-2] - mean[robots-1]) >=  0.1); //Aca para simulaciones con muchas celdas conviene poner un limite porcentual
@@ -91,67 +95,75 @@ int main(int argc, char* argv[])
         {
             // Si no se pudo graficar el histograma, retornamos error.
             fprintf(stderr, "failed to draw histogram!\n");
+            destroy_all(&sim, textures, display);
             return -1;
         }
 
+        al_destroy_bitmap(loadingScreen);
+        free(mean);
     }
-    else if (sim.modo == 1)
+    else if (sim.mode == 1)
     {   
-    // Si estoy en el modo 1.
+    // Si estoy en el mode 1.
+
+        // Inicializamos la simulación.
+        createsim(&sim, textures);
 
         // Corro la simulación mostrandola en pantalla.
-        runsimulation(&sim, textures, sim.modo);
+        runsimulation(&sim, textures);
+
+        // Aclaramos por consola, la cantidad de ticks que se tardó en limpiar el piso.
+        printf("Los robots tardaron %d ticks en completar la limpieza\n", sim.tickCount);
 
         //Destruimos los recursos de allegro.
         destroy_all(&sim, textures, display);
-
-        // Aclaramos por consola, la cantidad de ticks que se tardó en limpiar el piso.
-        printf(" el numero de ticks que tardo en completar la limpieza fue %d ", sim.tickCount);
     }
+
 
     return 0;
 }
 
+//Interpretamos la entrada que se realizo por ventana de comandos
 int parseCallback(char *key, char *value, void *userData)
 {
-    simulation_t * Data = userData;   // "Casteamos" el puntero al formato de nuestra
-                                      // estructura.
-    
-    if (!strcmp(key, "height"))        
+    simulation_t* Data = (simulation_t*) userData;   // "Casteamos" el puntero al formato de nuestra
+    // estructura.
+
+    if (!strcmp(key, "height"))
     {
-        long int temp = atol(value);    // Si Key="height" ==> guardamos value en el campo altura.
-        if (!temp)
+        int temp = atoi(value);    // Si Key="height" ==> guardamos value en el campo altura.
+        if (temp <= 0 || 70 < temp)
         {
             return ERROR_CALLBACK;
         }
         Data->h = temp;
     }
-    else if (!strcmp(key, "weight"))
+    else if (!strcmp(key, "widht"))
     {
-        long int temp = atol(value);    // Si Key="weight" ==> guardamos value en el campo ancho.
-        if (!temp)
+        int temp = atoi(value);    // Si Key="weight" ==> guardamos value en el campo ancho.
+        if (temp <= 0 || 100 < temp)
         {
             return ERROR_CALLBACK;
         }
         Data->w = temp;
     }
     else if (!strcmp(key, "robots"))
-    {    
-        long int temp = atol(value);    // Si Key="robots" ==> guardamos value en el campo robots.
-        if (!temp)
+    {
+        int temp = atoi(value);    // Si Key="robots" ==> guardamos value en el campo robots.
+        if (temp <= 0)
         {
             return ERROR_CALLBACK;
         }
-        Data->robots = temp;
+        Data->numRobots = temp;
     }
-    else if (!strcmp(key, "modo"))
-    {    
-        long int temp = atol(value);    // Si Key="modo" ==> guardamos value en el campo modo.
-        if (!temp)
+    else if (!strcmp(key, "mode"))
+    {
+        int temp = atoi(value);    // Si Key="mode" ==> guardamos value en el campo mode.
+        if ((temp != 1) && (temp != 2))
         {
             return ERROR_CALLBACK;
         }
-        Data->modo = temp;
+        Data->mode = temp;
     }
     else{
         return ERROR_CALLBACK;
