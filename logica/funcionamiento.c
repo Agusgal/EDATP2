@@ -65,7 +65,6 @@
 
 int createrobots(simulation_t* sim, ALLEGRO_BITMAP** textura)
 {
-
     srand(time(NULL));
 
     sim->robots = (robot_t*) malloc(sizeof(robot_t) * (sim->numRobots)) ;

@@ -13,6 +13,7 @@
 #define X_MARGIN_RIGHT 15
 #define Y_MARGIN_INF 25
 #define Y_MARGIN_SUP 15
+#define NUM_Y_TICKS 6
 #define HIST_SEP 5
 #define HIST_MARGIN 10
 #define AXIS_MARGIN 5
@@ -22,6 +23,7 @@
 #define REL(j)              (mean[(j)]/mean[0])
 #define RECT_HEIGHT(j)      (HIST_Y - (Y_MARGIN_INF + (HIST_Y - Y_MARGIN_INF - Y_MARGIN_SUP - HIST_MARGIN) * REL(j)))
 #define FONT_SIZE           Y_MARGIN_INF/2
+#define Y_TICKS_DIST        RECT_HEIGHT(0)/NUM_Y_TICKS
 #define MAX_CANT    10
 #define GRAPH_TIME  10
 #define ANIMATION_TIME  0.5

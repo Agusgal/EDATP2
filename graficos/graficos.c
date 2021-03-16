@@ -49,18 +49,28 @@
 
 void showMainMenu(simulation_t* sim, int* mode) {
 
+    //El usuario ingresa un alto de tablero en [1;67]
+    do{
+    printf("%s", "Ingresar alto: ");   
+    scanf("%d", &sim->h);
+    printf("%s", "\n");
+    } while (sim->h < 1 && 68 < sim->h);
+
+    //El usuario ingresa un ancho de tablero en [1;120]
+    do{
+    printf("%s", "Ingresar ancho: ");   
+    scanf("%d", &sim->w);
+    printf("%s", "\n");
+    } while (sim->w < 1 && 120 < sim->w);
+
+    //El usuario ingresa una cant de robots entre [1; casillas del tablero]
+    do{
     printf("%s", "Ingresar cant de robots: ");
     scanf("%d", &sim->numRobots);       //MAX = 67 * 120
     printf("%s","\n");
+    } while (sim->numRobots < 1 && (sim->w * sim->h) < sim->numRobots);
 
-    printf("%s", "Ingresar alto: ");    //max 67
-    scanf("%d", &sim->h);
-    printf("%s", "\n");
-
-    printf("%s", "Ingresar ancho: ");   //max 120
-    scanf("%d", &sim->w);
-    printf("%s", "\n");
-
+    //El usuario ingresa el modo en cuestion.
     do {
         printf("%s\n", "Ingresar el modo: \n");
         printf("%s", "-> 1 Tiempo Real \n");
@@ -72,7 +82,10 @@ void showMainMenu(simulation_t* sim, int* mode) {
 
 int init_allegro()
 {
-    if (!al_init()) { //Primera funcion a llamar antes de empezar a usar allegro.
+    //Iniciamos allegro y todos sus addons. 
+    // En caso de que uno falle retornamos 1, sino 0.
+
+    if (!al_init()) { 
         fprintf(stderr, "failed to initialize allegro!\n");
         return 1;
     }
@@ -100,6 +113,9 @@ int init_allegro()
     return 0;
 }
 
+/*
+NO SE USA
+
 int drawUI(simulation_t* sim) {
 
     char buffer[30] = "";
@@ -115,15 +131,15 @@ int drawUI(simulation_t* sim) {
 
     return 0;
 
-}
+}*/
 
 void drawFloor(simulation_t* sim, ALLEGRO_BITMAP** textures)
 {
-
+    // Definimos una escala para que el tablero siempre este en pantalla completa.
     float scale = getScale(sim->w, sim->h);
+
+    // Variables para centrar la simulación.
     int offsetX = 0, offsetY = 0;
-
-
     offsetX = SCREENWIDTH / 2 - sim->w * scale * PIXELSPERUNIT/2;
     offsetY = SCREENHEIGHT / 2 - sim->h * scale * PIXELSPERUNIT/2; //TODO: puede fallar, si falla agregar lo que esta en escala
 
@@ -131,6 +147,7 @@ void drawFloor(simulation_t* sim, ALLEGRO_BITMAP** textures)
     for (int i = 0; i < sim->h; i++) {
         for (int j = 0; j < sim->w; j++) {
 
+            // Calculo de variables que ayudan al posicionamiento de las baldozas.
             float posX = sim->floor[i][j].xPos * scale;
             float posY = sim->floor[i][j].yPos * scale;
             int imgWidth = al_get_bitmap_width(sim->floor[i][j].texture);
@@ -138,10 +155,12 @@ void drawFloor(simulation_t* sim, ALLEGRO_BITMAP** textures)
 
 
             if(sim->floor[i][j].state == CLEAN){
+                //Si el piso esta limpio, colocamos la imagen de la baldozas limpia.
                 al_draw_scaled_bitmap(textures[GREENTILEIMG], 0, 0, imgWidth, imgHeight, posX + offsetX, posY + offsetY,
                                                                         imgWidth * scale, imgHeight * scale, 0);
             }
             else{
+                //Si el piso esta sucio, colocamos la imagen de la baldozas sucia.
                 al_draw_scaled_bitmap(textures[REDTILEIMG], 0, 0, imgWidth, imgHeight, posX + offsetX, posY + offsetY,
                                                                         imgWidth * scale, imgHeight * scale, 0);
             }
@@ -155,37 +174,45 @@ void drawFloor(simulation_t* sim, ALLEGRO_BITMAP** textures)
 
 void drawRobot(simulation_t* sim)
 {
-
+    // Definimos una escala para que el tablero siempre este en pantalla completa.
     float scale = getScale(sim->w, sim->h);
-    int offsetX = 0, offsetY = 0;
 
+    // Variables para centrar la simulación. 
+    int offsetX = 0, offsetY = 0;
+    offsetX = SCREENWIDTH / 2 - sim->w * scale * PIXELSPERUNIT/2;
+    offsetY = SCREENHEIGHT / 2 - sim->h * scale * PIXELSPERUNIT/2;
+    
+    // Calculamos el ancho y alto de las baldozas.
     int tileW = al_get_bitmap_width(sim->floor[0][0].texture);
     int tileH = al_get_bitmap_height(sim->floor[0][0].texture);
 
-    offsetX = SCREENWIDTH / 2 - sim->w * scale * PIXELSPERUNIT/2;
-    offsetY = SCREENHEIGHT / 2 - sim->h * scale * PIXELSPERUNIT/2;
-
     for (int i = 0; i < sim->numRobots; i++) {
 
+        // Calculamos la posición entera del robot.
         int tilex = floor(sim->robots[i].xPos);
         int tiley = floor(sim->robots[i].yPos);
+
+        // Calculamos el ancho y alto de la imagen de los robots y su angulo.
         int imgW = al_get_bitmap_width(sim->robots[i].texture);
         int imgH = al_get_bitmap_height(sim->robots[i].texture);
         float angle = sim->robots[i].angle;
 
-
+        // Dibujamos los robots escalados.
         al_draw_scaled_bitmap(sim->robots[i].texture, 0, 0, imgW, imgH, (tilex * tileW + (tileW - imgW)/2) * scale + offsetX , (tiley * tileH + (tileH - imgH) / 2) * scale + offsetY,
                                                             imgW * scale, imgH * scale , 0);
 
+        // Calculamos el ancho y alto de la imagen de la flecha.
         imgW = al_get_bitmap_width(sim->robots[i].arrow);
         imgH = al_get_bitmap_height(sim->robots[i].arrow);
 
+        // Dibujamos las flechas escaladas y con el ángulo debido.
         al_draw_scaled_rotated_bitmap(sim->robots[i].arrow, imgW/2, imgH, (tilex * tileW + imgH / 2)*scale + offsetX, (tiley * tileH + imgH / 2) * scale + offsetY, scale, scale, ANG2RAD(angle+90), 0);
     }
 
 }
 
 float getScale(int w, int h) {
+    //TODO: comentar
     if ((SCREENHEIGHT / h) <= (SCREENWIDTH / w)) {
         return (float)SCREENHEIGHT / (float)h / (float)PIXELSPERUNIT;
     }
@@ -198,40 +225,55 @@ float getScale(int w, int h) {
 // 0 si cargo tood bien, sino 1
 int loadTextures(ALLEGRO_BITMAP** textura) {
 
+    //Definimos un buffer y una variable auxiliar para error.
     char rutaEfectiva[100];
     int error = 0;
 
     for (int i = 0; !error && i < NUMOFTEXTURES; i++) {
-
+        //Para cada textura:
+        
+        // cargamos su ruta.
         int size = sprintf(rutaEfectiva, "../graficos/resources/textures/%d.png", i+1);
+        // intentamos cargarla.
         textura[i] = al_load_bitmap(rutaEfectiva);
 
         if (textura[i] == NULL)
         {
+            // Si la carga falla, cargamos 1=TRUE en error.
             printf("couldn't load %s\n", rutaEfectiva);
             error = 1;
         }
     }
 
-    return error;
+    return error; // Retornamos si hubo o no error.
 }
+
+/* 
+ESTA AL PEDO
 
 int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura) {
 
+    // Reservamos memoria dinamica para el arreglo de robots.
     sim->robots = (robot_t*) malloc(sizeof(robot_t) * sim->numRobots);
 
+    //Si la reserva falla, retornamos error.
     if (sim->robots == NULL) {
         fprintf(stderr, "failed reserving memory for robots!\n");
         return 1;
     }
 
+    // Reservamos memoria dinamica para un arreglo de punteros a 
+    // arreglos de baldozas (filas)
     sim->floor = (tile_t**) malloc(sizeof(tile_t*) * sim->h);
 
     if (sim->floor != NULL) {
         for (int i = 0; i < sim->h; i++) {
+            //Por cada fila:
 
+            //   Reservamos memoria para todas las columnas de esa fila
             sim->floor[i] = (tile_t*) malloc(sizeof(tile_t) * sim->w);
 
+            //  Si la reserva falla, retornamos error.
             if (sim->floor[i] == NULL) {
                 fprintf(stderr, "failed reserving memory for floor rows!\n");
                 return 1;
@@ -239,6 +281,7 @@ int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura) {
         }
     }
     else {
+        // Si reserva de columnas del piso falla, retornamos error.
         fprintf(stderr, "failed reserving memory for floor columns!\n");
         return 1;
     }
@@ -262,16 +305,19 @@ int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura) {
     }
 
     return 0;
-}
+}*/
 
 
 int draw_histogram(float* mean, int quant)
 {
+    //Definimos arr para usarlo como buffer.
     char arr[MAX_CANT + 1] = "";
 
+    //Cargamos la dir. de la font en un puntero
     ALLEGRO_FONT* font = al_load_ttf_font("../graficos/resources/fonts/Ranchers-Regular.ttf", FONT_SIZE, 0);
 
     if (!font) {
+        // Si la carga de la font falla, retornamos error.
         fprintf(stderr, "Could not load font.\n");
         return -1;
     }
@@ -283,6 +329,15 @@ int draw_histogram(float* mean, int quant)
         al_draw_line(X_MARGIN_LEFT - 15, HIST_Y - Y_MARGIN_INF, HIST_X - X_MARGIN_RIGHT + 5, HIST_Y - Y_MARGIN_INF, WHITE, 2);
         al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF + 15, X_MARGIN_LEFT, Y_MARGIN_SUP - 5, WHITE, 2);
         
+
+        for(int j=1; j<NUM_Y_TICKS; j++)
+        {
+            // Dibujamos las lineas auxiliares y los y_ticks
+            al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j, HIST_X - X_MARGIN_RIGHT, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j, WHITE, 1);
+            sprintf(arr, "%.2f", mean[0]/j);
+            al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j - FONT_SIZE / 2, ALLEGRO_ALIGN_CENTRE, arr);
+        }
+
         // Escribimos que es cada eje.
         al_draw_text(font, WHITE, HIST_X - X_MARGIN_LEFT + 10, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, "Robots");
         al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, 5, ALLEGRO_ALIGN_CENTRE, "Tiempo");
@@ -296,15 +351,21 @@ int draw_histogram(float* mean, int quant)
             sprintf(arr, "%d", j + 1);
             al_draw_text(font, WHITE, (X_FIN(j, quant) + X_INIT(j, quant)) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
 
+            /*
             // Dibujamos los Y ticks.
             sprintf(arr, "%.2f", mean[j]);
             al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, RECT_HEIGHT(j) - FONT_SIZE / 2, ALLEGRO_ALIGN_CENTRE, arr);
+            */
         }
+
+        //Actualizamos el display y esperamos un tiempo para que se aprecie la animación.
         al_flip_display();
         al_rest(ANIMATION_TIME);
     }
+    // Una vez completo el gráfico dejamos un tiempo para que se muestre.
     al_rest(GRAPH_TIME); 
 
+    // Destruimos la font.
     al_destroy_font(font);
     return 0;
 }
@@ -312,17 +373,21 @@ int draw_histogram(float* mean, int quant)
 
 void destroy_all(simulation_t* sim, ALLEGRO_BITMAP** textures, ALLEGRO_DISPLAY* display)
 {
+    //Destruimos los bitmaps con las texturas.
     for (int i = 0; i < NUMOFTEXTURES; i++) {
         al_destroy_bitmap(textures[i]);
     }
 
+    //Liberamos del heap, las memorias de los robots.
     free(sim->robots);
 
+    //Liberamos del heap, las memorias del piso.
     for (int i = 0; i < sim->h; i++) {
         free(sim->floor[i]);
     }
     free(sim->floor);
 
+    // Destruimos display y addons de Allegro.
     al_destroy_display(display);
     al_shutdown_font_addon();
     al_shutdown_primitives_addon();
