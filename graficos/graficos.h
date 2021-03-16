@@ -22,6 +22,7 @@
 #define BLACK al_map_rgb(0, 0 ,0)
 #define RED al_map_rgb(255, 0, 0)
 #define WHITE al_map_rgb(250, 250, 250)
+#define BLUE  al_map_rgb(0, 63, 92)
 #define CLEAN 0
 
 

@@ -46,6 +46,12 @@ config.h
 ../estructuras/estructuras.h
 /Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h
 
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c
+funcionamiento.h
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
+../graficos/graficos.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
+
 /Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
 stdio.h
 -
@@ -73,6 +79,14 @@ allegro5/allegro_font.h
 -
 allegro5/allegro_ttf.h
 -
+
+/Users/agustin/Documents/GitHub/EDATP2/main.c
+stdio.h
+-
+graficos/graficos.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
+logica/funcionamiento.h
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
 
 /usr/local/Cellar/allegro/5.2.7.0/include/allegro5/alcompat.h
 

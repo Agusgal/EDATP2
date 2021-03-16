@@ -1,52 +1,6 @@
 #include "graficos.h"
 #include "../logica/funcionamiento.h"
 
-/*int main()
-{
-    ALLEGRO_BITMAP* textures[NUMOFTEXTURES];
-    ALLEGRO_DISPLAY* display = NULL;
-    simulation_t sim;
-    int mode;
-
-    showMainMenu(&sim, &mode);
-
-    if (init_allegro()) {
-        fprintf(stderr, "failed to initialize allegro!\n");
-        return -1;
-    }
-
-    display = al_create_display(SCREENWIDTH, SCREENHEIGHT);
-    if (!display) {
-        fprintf(stderr, "failed to display!\n");
-        return -1;
-    }
-
-    if (loadTextures(textures)) {
-        fprintf(stderr, "failed to load textures!\n");
-        return -1;
-    }
-
-    initSimulation(&sim, textures);
-
-    for (int i = 0; i < 100; i++) {
-
-        drawFloor(&sim);
-        drawRobot(&sim);
-        //drawUI(&sim);
-
-        al_flip_display();
-
-        //al_rest(1);
-    }
-
-    destroy_all(&sim, textures, display);
-
-    //float means[] = { 7.5, 6, 4.5, 4, 3.25, 1.99, 0.5 };
-    //draw_histogram(means, 7);
-
-    return 0;
-}*/
-
 void showMainMenu(simulation_t* sim, int* mode) {
 
     //El usuario ingresa un alto de tablero en [1;67]
@@ -222,7 +176,7 @@ float getScale(int w, int h) {
 
 }
 
-// 0 si cargo tood bien, sino 1
+// 0 si cargo todoo bien, sino 1
 int loadTextures(ALLEGRO_BITMAP** textura) {
 
     //Definimos un buffer y una variable auxiliar para error.
@@ -248,65 +202,6 @@ int loadTextures(ALLEGRO_BITMAP** textura) {
     return error; // Retornamos si hubo o no error.
 }
 
-/* 
-ESTA AL PEDO
-
-int initSimulation(simulation_t* sim, ALLEGRO_BITMAP** textura) {
-
-    // Reservamos memoria dinamica para el arreglo de robots.
-    sim->robots = (robot_t*) malloc(sizeof(robot_t) * sim->numRobots);
-
-    //Si la reserva falla, retornamos error.
-    if (sim->robots == NULL) {
-        fprintf(stderr, "failed reserving memory for robots!\n");
-        return 1;
-    }
-
-    // Reservamos memoria dinamica para un arreglo de punteros a 
-    // arreglos de baldozas (filas)
-    sim->floor = (tile_t**) malloc(sizeof(tile_t*) * sim->h);
-
-    if (sim->floor != NULL) {
-        for (int i = 0; i < sim->h; i++) {
-            //Por cada fila:
-
-            //   Reservamos memoria para todas las columnas de esa fila
-            sim->floor[i] = (tile_t*) malloc(sizeof(tile_t) * sim->w);
-
-            //  Si la reserva falla, retornamos error.
-            if (sim->floor[i] == NULL) {
-                fprintf(stderr, "failed reserving memory for floor rows!\n");
-                return 1;
-            }
-        }
-    }
-    else {
-        // Si reserva de columnas del piso falla, retornamos error.
-        fprintf(stderr, "failed reserving memory for floor columns!\n");
-        return 1;
-    }
-
-    for (int i = 0; i < sim->numRobots; i++) {
-        sim->robots[i].texture = textura[CLEANERIMG];
-        sim->robots[i].arrow = textura[ARROWIMG];
-        sim->robots[i].xPos = i * PIXELSPERUNIT;
-        sim->robots[i].yPos = i * PIXELSPERUNIT;
-        sim->robots[i].angle = PIXELSPERUNIT * i;
-    }
-
-    for (int i = 0; i < sim->h; i++) {
-        for (int j = 0; j < sim->w; j++) {
-
-            sim->floor[i][j].texture = textura[REDTILEIMG];
-            sim->floor[i][j].state = CLEAN;
-            sim->floor[i][j].yPos = i * PIXELSPERUNIT;
-            sim->floor[i][j].xPos = j * PIXELSPERUNIT;
-        }
-    }
-
-    return 0;
-}*/
-
 
 int draw_histogram(float* mean, int quant)
 {
@@ -325,31 +220,38 @@ int draw_histogram(float* mean, int quant)
     for (int i = 0; i < quant; i++)
     {
         // Dibujamos los ejes
-        al_clear_to_color(BLACK);
-        al_draw_line(X_MARGIN_LEFT - 15, HIST_Y - Y_MARGIN_INF, HIST_X - X_MARGIN_RIGHT + 5, HIST_Y - Y_MARGIN_INF, WHITE, 2);
-        al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF + 15, X_MARGIN_LEFT, Y_MARGIN_SUP - 5, WHITE, 2);
+        al_clear_to_color(WHITE);
+        al_draw_line(X_MARGIN_LEFT - 15, HIST_Y - Y_MARGIN_INF, HIST_X - X_MARGIN_RIGHT + 5, HIST_Y - Y_MARGIN_INF, BLACK, 2);
+        al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF + 15, X_MARGIN_LEFT, Y_MARGIN_SUP - 5, BLACK, 2);
         
 
         for(int j=1; j<=NUM_Y_TICKS; j++)
         {
             // Dibujamos las lineas auxiliares y los y_ticks
-            al_draw_line(X_MARGIN_LEFT, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j, HIST_X - X_MARGIN_RIGHT, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j, WHITE, 1);
-            sprintf(arr, "%.2f", j*mean[0]/NUM_Y_TICKS);
-            al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, HIST_Y - Y_MARGIN_INF - Y_TICKS_DIST*j - FONT_SIZE / 2, ALLEGRO_ALIGN_CENTRE, arr);
+            //ESTE FOR DIBUJA LINEAS PUNTEADAS
+            for (int k = 1; k <= LINE_RELATION; k+=2)
+            {
+                al_draw_line(X_MARGIN_LEFT + 5*(k-1), RECT_HEIGHT(0) + LINE_PARTITION*(j-1), X_MARGIN_LEFT + 5 + 5*(k-1), RECT_HEIGHT(0) + LINE_PARTITION*(j-1), BLACK, 1);
+            }
+
+            //el draw de abajo es para lineas rectas
+            //al_draw_line(X_MARGIN_LEFT, RECT_HEIGHT(0) + LINE_PARTITION*(j-1), HIST_X - X_MARGIN_RIGHT, RECT_HEIGHT(0) + LINE_PARTITION*(j-1), WHITE, 1);
+            sprintf(arr, "%.2f", mean[0]/j);
+            al_draw_text(font, BLACK, X_MARGIN_LEFT / 2, RECT_HEIGHT(0) + LINE_PARTITION*(j-1) - FONT_SIZE / 2, ALLEGRO_ALIGN_CENTRE, arr);
         }
 
         // Escribimos que es cada eje.
-        al_draw_text(font, WHITE, HIST_X - X_MARGIN_LEFT + 10, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, "Robots");
-        al_draw_text(font, WHITE, X_MARGIN_LEFT / 2, 5, ALLEGRO_ALIGN_CENTRE, "Tiempo");
+        al_draw_text(font, BLACK, HIST_X - X_MARGIN_LEFT + 10, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, "Robots");
+        al_draw_text(font, BLACK, X_MARGIN_LEFT / 2, 5, ALLEGRO_ALIGN_CENTRE, "Tiempo");
 
         for (int j = 0; j <= i; j++)
         {
             // Dibujamos el rectangulo.
-            al_draw_filled_rectangle(X_INIT(j, quant), HIST_Y - Y_MARGIN_INF, X_FIN(j, quant), RECT_HEIGHT(j), RED);
+            al_draw_filled_rectangle(X_INIT(j, quant), HIST_Y - Y_MARGIN_INF, X_FIN(j, quant), RECT_HEIGHT(j), BLUE);
 
             // Dibujamos los X ticks.
             sprintf(arr, "%d", j + 1);
-            al_draw_text(font, WHITE, (X_FIN(j, quant) + X_INIT(j, quant)) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
+            al_draw_text(font, BLACK, (X_FIN(j, quant) + X_INIT(j, quant)) / 2, HIST_Y - Y_MARGIN_INF * 3 / 4, ALLEGRO_ALIGN_CENTRE, arr);
 
             /*
             // Dibujamos los Y ticks.
