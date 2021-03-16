@@ -63,10 +63,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2"
+CMAKE_SOURCE_DIR = /Users/agustin/Documents/GitHub/EDATP2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug"
+CMAKE_BINARY_DIR = /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/EDATP2.dir/depend.make
@@ -79,55 +79,55 @@ include CMakeFiles/EDATP2.dir/flags.make
 
 CMakeFiles/EDATP2.dir/main.c.o: CMakeFiles/EDATP2.dir/flags.make
 CMakeFiles/EDATP2.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/EDATP2.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/main.c.o   -c "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/EDATP2.dir/main.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/main.c.o   -c /Users/agustin/Documents/GitHub/EDATP2/main.c
 
 CMakeFiles/EDATP2.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EDATP2.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c" > CMakeFiles/EDATP2.dir/main.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/agustin/Documents/GitHub/EDATP2/main.c > CMakeFiles/EDATP2.dir/main.c.i
 
 CMakeFiles/EDATP2.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EDATP2.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c" -o CMakeFiles/EDATP2.dir/main.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/agustin/Documents/GitHub/EDATP2/main.c -o CMakeFiles/EDATP2.dir/main.c.s
 
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: CMakeFiles/EDATP2.dir/flags.make
 CMakeFiles/EDATP2.dir/graficos/graficos.c.o: ../graficos/graficos.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/EDATP2.dir/graficos/graficos.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/graficos/graficos.c.o   -c "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/EDATP2.dir/graficos/graficos.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/graficos/graficos.c.o   -c /Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.c
 
 CMakeFiles/EDATP2.dir/graficos/graficos.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EDATP2.dir/graficos/graficos.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c" > CMakeFiles/EDATP2.dir/graficos/graficos.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.c > CMakeFiles/EDATP2.dir/graficos/graficos.c.i
 
 CMakeFiles/EDATP2.dir/graficos/graficos.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EDATP2.dir/graficos/graficos.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c" -o CMakeFiles/EDATP2.dir/graficos/graficos.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.c -o CMakeFiles/EDATP2.dir/graficos/graficos.c.s
 
 CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o: CMakeFiles/EDATP2.dir/flags.make
 CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o: ../logica/funcionamiento.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o   -c "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/logica/funcionamiento.c.o   -c /Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c
 
 CMakeFiles/EDATP2.dir/logica/funcionamiento.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EDATP2.dir/logica/funcionamiento.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c" > CMakeFiles/EDATP2.dir/logica/funcionamiento.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c > CMakeFiles/EDATP2.dir/logica/funcionamiento.c.i
 
 CMakeFiles/EDATP2.dir/logica/funcionamiento.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EDATP2.dir/logica/funcionamiento.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c" -o CMakeFiles/EDATP2.dir/logica/funcionamiento.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c -o CMakeFiles/EDATP2.dir/logica/funcionamiento.c.s
 
 CMakeFiles/EDATP2.dir/parser/parser.c.o: CMakeFiles/EDATP2.dir/flags.make
 CMakeFiles/EDATP2.dir/parser/parser.c.o: ../parser/parser.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/EDATP2.dir/parser/parser.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/parser/parser.c.o   -c "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/EDATP2.dir/parser/parser.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/EDATP2.dir/parser/parser.c.o   -c /Users/agustin/Documents/GitHub/EDATP2/parser/parser.c
 
 CMakeFiles/EDATP2.dir/parser/parser.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/EDATP2.dir/parser/parser.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.c" > CMakeFiles/EDATP2.dir/parser/parser.c.i
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/agustin/Documents/GitHub/EDATP2/parser/parser.c > CMakeFiles/EDATP2.dir/parser/parser.c.i
 
 CMakeFiles/EDATP2.dir/parser/parser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/EDATP2.dir/parser/parser.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.c" -o CMakeFiles/EDATP2.dir/parser/parser.c.s
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/agustin/Documents/GitHub/EDATP2/parser/parser.c -o CMakeFiles/EDATP2.dir/parser/parser.c.s
 
 # Object files for target EDATP2
 EDATP2_OBJECTS = \
@@ -184,7 +184,7 @@ EDATP2: /usr/local/Cellar/allegro/5.2.7.0/lib/liballegro_video.5.2.7.dylib
 EDATP2: /usr/local/Cellar/allegro/5.2.7.0/lib/liballegro_video.5.2.dylib
 EDATP2: /usr/local/Cellar/allegro/5.2.7.0/lib/liballegro_video.dylib
 EDATP2: CMakeFiles/EDATP2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable EDATP2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable EDATP2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EDATP2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -197,6 +197,6 @@ CMakeFiles/EDATP2.dir/clean:
 .PHONY : CMakeFiles/EDATP2.dir/clean
 
 CMakeFiles/EDATP2.dir/depend:
-	cd "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug" "/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/agustin/Documents/GitHub/EDATP2 /Users/agustin/Documents/GitHub/EDATP2 /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug /Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/CMakeFiles/EDATP2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/EDATP2.dir/depend
 

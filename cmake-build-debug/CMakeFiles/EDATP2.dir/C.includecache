@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
+/Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h
 stdbool.h
 -
 allegro5/bitmap.h
 -
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/config.h
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c
+/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.c
 graficos.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
 ../logica/funcionamiento.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
 stdio.h
 -
 math.h
@@ -38,17 +38,17 @@ allegro5/allegro_font.h
 allegro5/allegro_ttf.h
 -
 config.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/config.h
 ../estructuras/estructuras.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
+/Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c
 funcionamiento.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
 ../graficos/graficos.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
 stdio.h
 -
 stdlib.h
@@ -58,9 +58,9 @@ math.h
 stdbool.h
 -
 ../estructuras/estructuras.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h
+/Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h
 ../graficos/config.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/config.h
 allegro5/allegro5.h
 -
 allegro5/allegro_native_dialog.h
@@ -76,17 +76,21 @@ allegro5/allegro_font.h
 allegro5/allegro_ttf.h
 -
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c
+/Users/agustin/Documents/GitHub/EDATP2/main.c
 stdio.h
 -
 graficos/graficos.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h
+/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h
 logica/funcionamiento.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h
+/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h
 parser/parser.h
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.h
+/Users/agustin/Documents/GitHub/EDATP2/parser/parser.h
 
-/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.h
+/Users/agustin/Documents/GitHub/EDATP2/parser/parser.c
+parser.h
+/Users/agustin/Documents/GitHub/EDATP2/parser/parser.h
+
+/Users/agustin/Documents/GitHub/EDATP2/parser/parser.h
 stdio.h
 -
 stdlib.h
