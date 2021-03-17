@@ -10,12 +10,24 @@ int main(int argc, char* argv[])
     // Punteros de allegro.
     ALLEGRO_BITMAP* textures[NUMOFTEXTURES] = {NULL};
     ALLEGRO_DISPLAY* display = NULL;
-    simulation_t sim = {.robots = NULL, .floor = NULL};     // Declaramos la simulación.
+    simulation_t sim = {0,0,0,0,NULL,NULL,0};     // Declaramos la simulación.
 
     //Leemos la entrada pasada por comando
     if (parseCmdLine(argc, argv, &parseCallback, &sim) == -1)
     {
         fprintf(stderr, "failed to parse command line!\n");
+        return -1;
+    }
+    else if(sim.mode == 0){ //si no hay modo de ejecucion
+        fprintf(stderr, "Enter the execution mode using option -mode [num]\n");
+        return -1;
+    }
+    else if(sim.h == 0 || sim.w == 0){   //si no se ingreso la altura o el ancho
+        fprintf(stderr, "There are not enought information to run simulation. Enter w or h using option -widht [num] or -height [num]\n");
+        return -1;
+    }
+    else if(sim.mode == 1 && sim.numRobots == 0){ //Si el modo es 1 pero no hay robots
+        fprintf(stderr, "There are no robots. Enter the number of robots to run the simulation using -robots [num]\n");
         return -1;
     }
 
@@ -132,7 +144,7 @@ int parseCallback(char *key, char *value, void *userData)
     if (!strcmp(key, "height"))
     {
         int temp = atoi(value);    // Si Key="height" ==> guardamos value en el campo altura.
-        if (temp <= 0 || 70 < temp)
+        if (temp <= 0 || 100 < temp)
         {
             return ERROR_CALLBACK;
         }
@@ -141,7 +153,7 @@ int parseCallback(char *key, char *value, void *userData)
     else if (!strcmp(key, "widht"))
     {
         int temp = atoi(value);    // Si Key="weight" ==> guardamos value en el campo ancho.
-        if (temp <= 0 || 100 < temp)
+        if (temp <= 0 || 70 < temp)
         {
             return ERROR_CALLBACK;
         }

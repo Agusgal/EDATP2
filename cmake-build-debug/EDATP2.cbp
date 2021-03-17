@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug"/>
+				<Option working_dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug"/>
+				<Option working_dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug"/>
+				<Option working_dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="EDATP2">
-				<Option output="/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/EDATP2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug"/>
+				<Option output="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/EDATP2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDATP2"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDATP2"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="EDATP2/fast">
-				<Option output="/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/EDATP2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug"/>
+				<Option output="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug/EDATP2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,41 +75,41 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDATP2/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/agustin/Documents/GitHub/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDATP2/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/gonzalolinares/Documents/Informatica/Workspace\ CLion/EDATP2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/estructuras/estructuras.h">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/estructuras/estructuras.h">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/graficos/config.h">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/config.h">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.c">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.c">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/graficos/graficos.h">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/graficos/graficos.h">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.c">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.c">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/logica/funcionamiento.h">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/logica/funcionamiento.h">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/main.c">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/main.c">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/parser/parser.c">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.c">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/parser/parser.h">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/parser/parser.h">
 			<Option target="EDATP2"/>
 		</Unit>
-		<Unit filename="/Users/agustin/Documents/GitHub/EDATP2/CMakeLists.txt">
+		<Unit filename="/Users/gonzalolinares/Documents/Informatica/Workspace CLion/EDATP2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
